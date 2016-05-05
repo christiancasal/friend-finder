@@ -6,17 +6,6 @@ var apiRoute = require('./app/routing/api-routes.js');
 var htmlRoute = require('./app/routing/html-routes.js');
 var logger = require("morgan");
 
-// //start up the database
-// var connection = mysql.createConnection({
-//   host: 'localhost',
-//   user: 'root',
-//   password: '',
-//   database: 'friendFinderDB'
-// });
-
-// connection.connect(function(err){
-//   if(err) throw err;
-// });
 
 //start up the express app
 var app = express();
@@ -33,9 +22,6 @@ app.use(logger('dev'));
 app.get('/api/friends', apiRoute);
 app.get('/survey', htmlRoute);
 app.use('/', htmlRoute);
-
-
-
 
 
 app.listen(PORT, function(){
