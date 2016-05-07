@@ -35,25 +35,20 @@ var arrFriends = [];
 //api router-------------------------
 
 api_router.get('/api/friends', function(req, res){
-  // console.log(req.params);
-  // console.log(res);
-  // console.log(arrFriends);
   var arrFriends = [];
-  
-  connection.query('SELECT * FROM friends_tbl', function(err, result){
 
+  connection.query('SELECT * FROM friends_tbl', function(err, result){
     result.forEach(function(row) {
-      
-      console.log(JSON.stringify(row, null, 2));
+      //console.log(JSON.stringify(row, null, 2));
       arrFriends.push(row);
       res.json(arrFriends)
       });
-  }); 
+  });
 });
 
 // api_router.post('/api/friends', function(req,res){
 // 	var newFriend = req.body;
-// 	console.log(newFriend); 
+// 	console.log(newFriend);
 
 // 	arrFriends.push(newFriend);
 // 	//TODO connection query to update the database with new friends

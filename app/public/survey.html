@@ -19,21 +19,92 @@
     <div class="container">
       <div class="panel panel-default">
         <div class="panel panel-heading">
-          <h3 class="panel-title"><strong>Question #</strong></h3>
+          <h3 class="panel-title"><strong>Questions</strong></h3>
         </div>
-        <div class="panel-body">
-          <div class="well col-md-10 col-md-offset-1">
-            Some question.
-            <select required class="form-control">
-              <option value="1">1</option>
-            </select>
+        <div id="questionHolder" class="panel-body">
+            <div class="form-group col-md-6 col-md-offset-2">
+            <span>Name: </span>
+            <input type="text" name="" id="name" class="form-control" required></input>
+            <br>
+            <br>
+            <span>Photo Link: </span>
+              <input type="text" name="" id="photo" class="form-control" required></input>
+              <br>
+              <br>
+              <label for=""> Should I stay or should I go?
+              <select class="form-control user-choices" id="q1">
+                <option>1 (Strongly Disagree)</option>
+                <option>2</option>
+                <option>3 (Somewhat)</option>
+                <option>4</option>
+                <option>5 (Strongly Agree)</option>
+              </select>
+              </label>
+              <br>
+              <br>
+              <label for=""> What you gon' do with all that junk inside your trunk?
+                <select class="form-control user-choices" id="q2">
+                <option>1 (Strongly Disagree)</option>
+                <option>2</option>
+                <option>3 (Somewhat)</option>
+                <option>4</option>
+                <option>5 (Strongly Agree)</option>
+              </select>
+              </label>
+              <br>
+              <br>
+              <label for=""> What if god was one of us?
+              <select class="form-control user-choices" id="q3">
+                <option>1 (Strongly Disagree)</option>
+                <option>2</option>
+                <option>3 (Somewhat)</option>
+                <option>4</option>
+                <option>5 (Strongly Agree)</option>
+              </select>
+              </label>
+              <br>
+              <br>
+              <label for=""> What's my age again?
+              <select class="form-control user-choices" id="q4">
+                <option>1 (Strongly Disagree)</option>
+                <option>2</option>
+                <option>3 (Somewhat)</option>
+                <option>4</option>
+                <option>5 (Strongly Agree)</option>
+              </select>
+              </label>
+              <br>
+              <br>
+              <label for=""> Who let the dogs out?
+                  <select class="form-control user-choices" id="q5">
+                    <option>1 (Strongly Disagree)</option>
+                    <option>2</option>
+                    <option>3 (Somewhat)</option>
+                    <option>4</option>
+                    <option>5 (Strongly Agree)</option>
+                  </select>
+              </label>
+              <br>
+              <br>
+              <button type="submit" class="btn btn-primary submit">Find your match!</button>
             </div>
-          </div>
+
+        </div>
         </div>
       </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+      // $(".submit").on("click",function(){
+      //   console.log($("input:radio[name='q1']:checked").val());
+      //
+      //   var newSurvey ={
+      //     q1: $("input:radio[name='q1']:checked").val()
+      //   }
+      //   console.log(newSurvey.q1);
+      // });
+    </script>
   </body>
 </html>

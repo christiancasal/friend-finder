@@ -1,7 +1,6 @@
 var express = require('express');
 var path = require('path');
 var bodyParser = require("body-parser");
-// var mysql = require('mysql');
 var apiRoute = require('./app/routing/api-routes.js');
 var htmlRoute = require('./app/routing/html-routes.js');
 var logger = require("morgan");
