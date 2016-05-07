@@ -4,7 +4,7 @@ var bodyParser = require("body-parser");
 var html_router = express.Router();
 
 html_router.use(bodyParser.json());
-html_router.use(bodyParser.urlencoded({extended: false}));
+html_router.use(bodyParser.urlencoded({extended: true}));
 html_router.use(bodyParser.text());
 html_router.use(bodyParser.json({type:'application/vnd.api+json'}));
 

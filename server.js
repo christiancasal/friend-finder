@@ -1,8 +1,8 @@
 var express = require('express');
 var path = require('path');
 var bodyParser = require("body-parser");
-var apiRoute = require('./app/routing/api-routes.js');
 var htmlRoute = require('./app/routing/html-routes.js');
+var apiRoute = require('./app/routing/api-routes.js');
 var logger = require("morgan");
 
 
@@ -12,15 +12,19 @@ var PORT = 3000;
 
 //allows express to handle data parsing
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.text());
 app.use(bodyParser.json({type:'application/vnd.api+json'}));
 app.use(logger('dev'));
 
-
-app.get('/api/friends', apiRoute);
-app.get('/survey', htmlRoute);
+app.use('/', apiRoute);
 app.use('/', htmlRoute);
+
+
+
+
+
+
 
 
 app.listen(PORT, function(){

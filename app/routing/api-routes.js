@@ -2,61 +2,38 @@ var express = require('express');
 var api_router = express.Router();
 var path = require('path');
 var bodyParser = require("body-parser");
+var friendsObj = require("../data/friends.js")
 
 //allows express to handle data parsing
 api_router.use(bodyParser.json());
-api_router.use(bodyParser.urlencoded({extended: false}));
+api_router.use(bodyParser.urlencoded({extended: true}));
 api_router.use(bodyParser.text());
 api_router.use(bodyParser.json({type:'application/vnd.api+json'}));
 
 
-//start up the database--------------
-
-var mysql = require('mysql');
-
-var connection = mysql.createConnection({
-  host: 'localhost',
-  user: '',
-  password: '',
-  database: 'friendFinderDB'
-});
-
-connection.connect(function(err){
-  if(err) throw err;
-});
-//------------------------------------
-
-//container for incoming api data-------------
-
-var arrFriends = [];
-
-//--------------------------------------
-
 //api router-------------------------
+api_router.post('/api/friends', function(req,res){
+  console.log(req.body)
+  var newFriend = {
+    name: req.body.name,
+    photo: req.body.photo,
+    score: [
+      req.body.q1,
+      req.body.q2,
+      req.body.q3,
+      req.body.q4,
+      req.body.q5
+    ]
+  }
+
+  friendsObj.addFriend(newFriend);
+  res.redirect('/');
+});
 
 api_router.get('/api/friends', function(req, res){
-  var arrFriends = [];
-
-  connection.query('SELECT * FROM friends_tbl', function(err, result){
-    result.forEach(function(row) {
-      //console.log(JSON.stringify(row, null, 2));
-      arrFriends.push(row);
-      res.json(arrFriends)
-      });
-  });
+  res.json(friendsObj.friends)
 });
 
-// api_router.post('/api/friends', function(req,res){
-// 	var newFriend = req.body;
-// 	console.log(newFriend);
-
-// 	arrFriends.push(newFriend);
-// 	//TODO connection query to update the database with new friends
-
-// 	res.json(newFriend);
-
-// 	//TODO: handle match logic
-// });
 
 //---------------------------------
 

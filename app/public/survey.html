@@ -22,89 +22,101 @@
           <h3 class="panel-title"><strong>Questions</strong></h3>
         </div>
         <div id="questionHolder" class="panel-body">
+            <form method="post" action="/api/friends">
             <div class="form-group col-md-6 col-md-offset-2">
             <span>Name: </span>
-            <input type="text" name="" id="name" class="form-control" required></input>
+            <input type="text" for="name" name="name" id="name" class="form-control" required></input>
             <br>
             <br>
             <span>Photo Link: </span>
-              <input type="text" name="" id="photo" class="form-control" required></input>
+              <input type="text" for="photo" name="photo" id="photo" class="form-control" required></input>
               <br>
               <br>
-              <label for=""> Should I stay or should I go?
-              <select class="form-control user-choices" id="q1">
-                <option>1 (Strongly Disagree)</option>
-                <option>2</option>
-                <option>3 (Somewhat)</option>
-                <option>4</option>
-                <option>5 (Strongly Agree)</option>
+              <label for="q1"> Should I stay or should I go?
+              <select class="form-control" name="q1" id="q1">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
               </select>
               </label>
               <br>
               <br>
-              <label for=""> What you gon' do with all that junk inside your trunk?
-                <select class="form-control user-choices" id="q2">
-                <option>1 (Strongly Disagree)</option>
-                <option>2</option>
-                <option>3 (Somewhat)</option>
-                <option>4</option>
-                <option>5 (Strongly Agree)</option>
+              <label for="q2"> What you gon' do with all that junk inside your trunk?
+                <select class="form-control" name="q2" id="q2">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
               </select>
               </label>
               <br>
               <br>
-              <label for=""> What if god was one of us?
-              <select class="form-control user-choices" id="q3">
-                <option>1 (Strongly Disagree)</option>
-                <option>2</option>
-                <option>3 (Somewhat)</option>
-                <option>4</option>
-                <option>5 (Strongly Agree)</option>
+              <label for="q3"> What if god was one of us?
+              <select class="form-control" name="q3" id="q3">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
               </select>
               </label>
               <br>
               <br>
-              <label for=""> What's my age again?
-              <select class="form-control user-choices" id="q4">
-                <option>1 (Strongly Disagree)</option>
-                <option>2</option>
-                <option>3 (Somewhat)</option>
-                <option>4</option>
-                <option>5 (Strongly Agree)</option>
+              <label for="q4"> What's my age again?
+              <select class="form-control" name="q4" id="q4">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
               </select>
               </label>
               <br>
               <br>
-              <label for=""> Who let the dogs out?
-                  <select class="form-control user-choices" id="q5">
-                    <option>1 (Strongly Disagree)</option>
-                    <option>2</option>
-                    <option>3 (Somewhat)</option>
-                    <option>4</option>
-                    <option>5 (Strongly Agree)</option>
+              <label for="q5"> Who let the dogs out?
+                  <select class="form-control" name="q5" id="q5">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
                   </select>
               </label>
               <br>
               <br>
               <button type="submit" class="btn btn-primary submit">Find your match!</button>
+            </form>
             </div>
 
         </div>
         </div>
       </div>
     </div>
-
+    <div class="container">
+      <p>
+        <a id="apiFriendsLink" href="/api/friends">API Friends Link</a>
+      </p>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script type="text/javascript">
-      // $(".submit").on("click",function(){
-      //   console.log($("input:radio[name='q1']:checked").val());
-      //
-      //   var newSurvey ={
-      //     q1: $("input:radio[name='q1']:checked").val()
-      //   }
-      //   console.log(newSurvey.q1);
-      // });
+      $(".submit").on("click",function(){
+        var newFriend = {
+          name: $('#name').val(),
+          photo: $('#photo').val(),
+          answers: [
+          $('#q1').val(),
+          $('#q2').val(),
+          $('#q3').val(),
+          $('#q4').val(),
+          $('#q5').val()
+          ]
+        }
+      // alert("Thanks!")
+      });
     </script>
   </body>
 </html>

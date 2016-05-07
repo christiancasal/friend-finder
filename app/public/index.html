@@ -9,7 +9,7 @@
   <body>
       <div class="jumbotron container text-center">
         <h1><span class="glyphicon glyphicon-fire">
-          
+
         </span> Friend Finder</h1>
       <br>
       <br>
@@ -27,27 +27,27 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script type="text/javascript">
-      function runFriendQuery(){
-        var currentURL = window.location.origin;
-
-        $.ajax({
-          url: currentURL + '/api/friends',
-          type: 'GET'
-        })
-        .done(function(friendData) {
-          console.log(friendData)
-          console.log("success");
-          console.log("URL: " +  currentURL + "/api/friends")
-        })
-        .fail(function() {
-          console.log("error");
-        })
-        .always(function() {
-          console.log("complete");
-        });
-        
-      }
-      runFriendQuery();
+      // function runFriendQuery(){
+      //   var currentURL = window.location.origin;
+      //
+      //   $.ajax({
+      //     url: currentURL + '/api/friends',
+      //     type: 'GET'
+      //   })
+      //   .done(function(friendData) {
+      //     console.log(friendData)
+      //     console.log("success");
+      //     console.log("URL: " +  currentURL + "/api/friends")
+      //   })
+      //   .fail(function() {
+      //     console.log("error");
+      //   })
+      //   .always(function() {
+      //     console.log("complete");
+      //   });
+      //
+      // }
+      // runFriendQuery();
     </script>
   </body>
 </html>
