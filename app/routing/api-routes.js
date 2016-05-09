@@ -13,7 +13,6 @@ api_router.use(bodyParser.json({type:'application/vnd.api+json'}));
 
 //api router-------------------------
 api_router.post('/api/friends', function(req,res){
-  console.log(req.body)
   var newFriend = {
     name: req.body.name,
     photo: req.body.photo,
@@ -23,17 +22,18 @@ api_router.post('/api/friends', function(req,res){
       req.body.q3,
       req.body.q4,
       req.body.q5
-    ]
+    ],
+    match:['name', 'photo']
   }
-
   friendsObj.addFriend(newFriend);
+  friendsObj.matchFriend(newFriend.score);
+
   res.redirect('/');
 });
 
 api_router.get('/api/friends', function(req, res){
   res.json(friendsObj.friends)
 });
-
 
 //---------------------------------
 
